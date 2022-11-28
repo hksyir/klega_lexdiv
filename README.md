@@ -1,28 +1,47 @@
-## Investigating lexical diversity in L2 Korean writing
+## Korean LExico-Grammatical Analyzer (KLEGA)
 
-### Abstract
+A Korean lexical diversity analyzer with following features:
+- Remove typos from the raw texts automatically
+- Tokenize using one of the six tokenizers (okt, komoran, mecab, kkma, hannanum from [konlpy](https://konlpy.org/en/latest/), [stanza](https://stanfordnlp.github.io/stanza/tokenize.html))
+- Calculate lexical diversity using the package [taaled](https://github.com/kristopherkyle/TAALED)
+- Analyze with and without function words
 
-Indices of lexical diversity (LD), or the variety of words, are commonly used in L2 writing assessments. The simplest LD index is the type-token ratio (TTR; Johnson, 1944), which is calculated as the number of types divided by the number of tokens. However, due to its strong correlation to text length, there has been considerable effort in recent years to develop indices that are less dependent on text length (e.g., McCarthy & Jarvis, 2007). The developed indices have been studied with L2 English writing but not often extended to L2s other than English. The present study aims to address this gap by assessing twelve established LD indices in L2 Korean learners’ written corpus and evaluating their correlations with the learners’ L2 proficiency levels. The data comprises a sample of 4,208 argumentative essays extracted from the National Institution of Korean Language, and the number of tokens ranged from 80 to 480. The corpus was preprocessed, subdivided via parallel sampling (Hess, Sefton, & Landry, 1986) and tokenized with five different tokenizers from the KoNLPy Python package (Park & Cho, 2014). Researchers analyzed twelve LD indices by adapting algorithms developed for English writing assessment (Kyle et al., 2021) to function appropriately with Korean, where a word can be divided into many morphemes.
+----------
+
+## Setup
+Currently, the execution of the code is available only on Windows environment with the Microsoft Office installed. (Microsoft Office is needed to remove typos from the raw text.)  
+
+### Basic setup
+Install the required packages using:
+```angular2html
+pip install -r requirements.txt
+```
+
+### Mecab tokenizer installation (optional)
+Manual installation is needed to use the mecab tokenizer on Windows.  
+Follow this instruction: [Korean](https://uwgdqo.tistory.com/363), [English(translated)](https://uwgdqo-tistory-com.translate.goog/363?_x_tr_sl=ko&_x_tr_tl=en&_x_tr_hl=ko&_x_tr_pto=wapp
+)  
+Default Mecab path is 'C:/mecab/mecab-ko-dic'  
+To change the mecab path, change the path in the source code:  
+https://github.com/hksyir/klega_lexdiv/blob/2e0d1a8b8bf03abfdbce62d445ce03d7a45fcf09/src/korean_tokenizer.py#L65
+
+----------
+## Data
 
 
-### Demo
-
-This is a demo version of Korean LExico-Grammatical Analyzer [KLEGA](http://sooyeoncho.pythonanywhere.com) -- it will be updated soon!
-
+----------
+## Usage
 
 
-This repository..
+----------
+## Web Demo
+A [web demo version](http://sooyeoncho.pythonanywhere.com) of Korean LExico-Grammatical Analyzer KLEGA is available now.  
+Currently optimized for the Chrome browser on PC.
 
 
-# Setup
-only on window
+---------------
 
-# Data
+### To be updated
+- analyze without typo removal option (for running on the other OS)
 
-# Usage
-
-
-# relevant resources
-taaled, konlpy
-
-# web demo (developing,)
+Please create a GitHub issue if you have any questions or bug-reports.

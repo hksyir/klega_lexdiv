@@ -1,8 +1,6 @@
 """
 Lexical diversity calculator for Korean L2 writings
-This script is modified version of the python package lexical_diversity https://github.com/kristopherkyle/lexical_diversity
-with the permission from the package owner.
-
+This script is adapted the python package lexical_diversity https://github.com/kristopherkyle/lexical_diversity
 """
 
 import math

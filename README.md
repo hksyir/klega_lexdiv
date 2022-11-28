@@ -8,3 +8,21 @@ Indices of lexical diversity (LD), or the variety of words, are commonly used in
 ### Demo
 
 This is a demo version of Korean LExico-Grammatical Analyzer [KLEGA](http://sooyeoncho.pythonanywhere.com) -- it will be updated soon!
+
+
+
+This repository..
+
+
+# Setup
+only on window
+
+# Data
+
+# Usage
+
+
+# relevant resources
+taaled, konlpy
+
+# web demo (developing,)

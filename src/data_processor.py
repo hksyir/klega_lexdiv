@@ -5,8 +5,6 @@ import os
 import codecs
 import re
 import pandas as pd
-
-from data_reader import read_texts_into_lists
 from util import current_time_as_str
 
 
@@ -78,9 +76,3 @@ def typodelete(txt_id, txt_list, save=True):
 
     return output_df
 
-
-# if __name__ == '__main__':
-#     path = "../data/4208-data-total"
-#     # read data
-#     txt_id, txt_list = read_texts_into_lists(path)
-#     output_df = typodelete(txt_id, txt_list, save=True)

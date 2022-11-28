@@ -1,7 +1,5 @@
 import os
-import pandas as pd
 import logging
-import string
 from string import digits
 
 
@@ -12,10 +10,11 @@ def read_text_file(file_path):
     return txt
 
 
-def read_texts_into_lists(path, remove_punc_num=True):
+def read_texts_into_lists(path, remove_num=True):
     """
     read all plain text files (.txt) in the path and return text id (file name) and text contents as list
-    :param remove_punc_num: bool, if set True, remove punctuation including special character and number in the text.
+    :param remove_num: bool, if set True, remove numbers in the text.
+                        default is set True. (Processing numbers are not consistent for korean tokenizers, so remove nums beforehand.)
     :param path: str, directory to the input files
     :return: tuple (txt_id, text_list)
                 where (txt_id) is a list of file names
@@ -37,14 +36,9 @@ def read_texts_into_lists(path, remove_punc_num=True):
 
     os.chdir(owd)
 
-    if remove_punc_num:
-        #text_list = [txt.translate(str.maketrans('', '', string.punctuation)) for txt in text_list] # remove punctuation
-        text_list = [txt.translate(str.maketrans('', '', digits)) for txt in text_list] # remove number
+    if remove_num:   # remove number
+        text_list = [txt.translate(str.maketrans('', '', digits)) for txt in text_list]
 
     logging.info("%s files read successfully.", len(txt_id))
 
     return txt_id, text_list
-
-
-if __name__ == '__main__':
-    pass

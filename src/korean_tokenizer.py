@@ -62,7 +62,7 @@ def tokenize(tokenizer, text):
         stopwords = KOMORAN_STOPWORDS
     elif tokenizer == 'mecab':
         tagger = Mecab(
-            dicpath='C:/mecab/mecab-ko-dic')  # todo raise error 1) window env 2) if dict is not installed in the path
+            dicpath='C:/mecab/mecab-ko-dic')
         stopwords = MECAB_STOPWORDS
     elif tokenizer == 'kkma':
         tagger = Kkma()
@@ -93,10 +93,11 @@ def tokenize(tokenizer, text):
 
 
 def remove_function_words(pos_tuple, tokenizer):
-    """ TODO: docstring
+    """
+    Revmoe function words from tokenized pos tuple
     include this if main argument functionwords=False
-    :param pos_tuple:
-    :param tokenizer:
+    :param pos_tuple: ('token', 'Part-Of-Speech')
+    :param tokenizer: str, available options: okt, komoran, mecab, kkma, hannanum
     :return:
     """
 
@@ -119,10 +120,3 @@ def remove_function_words(pos_tuple, tokenizer):
     tokens_cleaned = [item[0] for item in pos_tuple_cleaned]
 
     return pos_tuple_cleaned, tokens_cleaned
-
-# if __name__ == '__main__':
-#     txt = "친구의 침대. 조사를 분석해요. 분석했어요. 먹다. 먹어. 먹어요. 안녕 이건 텍스트야! 예시 텍스트인데 나 어떄? 예뻐? 3000만큼 사랑해"
-#     pos_tuple_all, pos_tuple_cleaned, tokens_cleaned = tokenize(tokenizer='stanza', text=txt, include_function_words=True)
-#     print(pos_tuple_all)
-#     print(pos_tuple_cleaned)
-#     print(tokens_cleaned)

@@ -98,11 +98,12 @@ This is an example result file:
 
 ## Web Demo
 A [web demo version](http://sooyeoncho.pythonanywhere.com) of Korean LExico-Grammatical Analyzer KLEGA is available now.  
-Currently optimized for the Chrome browser on PC.
+Currently optimized for the Chrome browser on PC. (under development)
 
 
 
 ### To be updated
 - [ ] analyze without typo removal option (for running on the other OS)
 
-Please create a GitHub issue if you have any questions or bug-reports.
+Please create a GitHub issue if you have any questions or bug-reports.  
+Email to the writers: [Sooyeon Cho](mailto:sooyeon.cho@uzh.ch) & [Hakyung Sung](mailto:hsung@uoregon.edu)

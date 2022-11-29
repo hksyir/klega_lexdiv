@@ -30,15 +30,14 @@ def tokenize_n_make_ld_matrix(data, tokenizer, include_function_words, parallel_
     loi = ["ntokens", "ntypes", "mtld", "mtldo", "mattr", "ttr", "rttr", "lttr", "maas", "msttr", "hdd"]
 
     # set file name
-    current_time = current_time_as_str()
     if include_function_words:
-        file_name = output_dir + "/" + current_time + "_" + tokenizer + "_all_words.tsv"
+        file_name = output_dir + "/" + tokenizer + "_all_words.tsv"
         if parallel_analysis:
-            file_name = output_dir + "/" + current_time + "_" + tokenizer + "_all_words_prll.tsv"
+            file_name = output_dir + "/" + tokenizer + "_all_words_prll.tsv"
     else:
-        file_name = output_dir + "/" + current_time + "_" + tokenizer + "_content_only.tsv"
+        file_name = output_dir + "/" + tokenizer + "_content_only.tsv"
         if parallel_analysis:
-            file_name = output_dir + "/" + current_time + "_" + tokenizer + "_content_only_prll.tsv"
+            file_name = output_dir + "/" + tokenizer + "_content_only_prll.tsv"
 
     outf = open(file_name, "w", encoding='utf-8')
     if parallel_analysis:

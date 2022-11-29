@@ -8,9 +8,10 @@ import pandas as pd
 from util import current_time_as_str
 
 
-def typodelete(txt_id, txt_list, save=True):
+def typodelete(txt_id, txt_list, output_dir, save=True):
     """
     Detect typo in a list of texts using MSword and delete the typos
+    :param output_dir: str, output directory to save the processed text
     :param txt_id: unique id of texts
     :param txt_list: list of texts
     :param save: boolean, if True, save the result file to excel
@@ -68,7 +69,7 @@ def typodelete(txt_id, txt_list, save=True):
     os.remove(file_path)
 
     if save:
-        file_path = "processed_data_" + current_time + ".tsv"
+        file_path = output_dir + '/' + "processed_data" + ".tsv"
         logging.info("Saving processed text file as %s . . .", file_path)
         output_df.to_csv(file_path, encoding='utf-8', sep='\t')
 

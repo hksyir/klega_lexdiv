@@ -36,7 +36,7 @@ if __name__ == '__main__':
     # set logger
     a_logger = logging.getLogger()
     a_logger.setLevel(logging.DEBUG)
-    log_file = args.outputdir + '/' + current_time_as_str() + "_logfile.log"
+    log_file = args.outputdir + '/' + "log_" + current_time_as_str() + ".log"
     output_file_handler = logging.FileHandler(log_file)
     a_logger.addHandler(output_file_handler)
 
@@ -57,7 +57,7 @@ if __name__ == '__main__':
 
     # read and process text
     txt_id, text_list = read_texts_into_lists(args.inputdir)
-    typo_deleted_df = typodelete(txt_id, text_list)
+    typo_deleted_df = typodelete(txt_id, text_list, args.outputdir)
 
     # tokenize and analyse
     if args.all:

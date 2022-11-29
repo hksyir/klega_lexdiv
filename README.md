@@ -54,22 +54,6 @@ python src/main.py -i [INPUT_DIR] -f
 ```
 Note: For ```stanza``` tokenizer, ```-f``` must be always added. ```stanza``` does not have an option to extract content words only.
 
-### Parallel analysis
-To do parallel analysis, add ```-p``` flag in the command:
-```angular2html
-python src/main.py -i [INPUT_DIR] -p
-```
-
-### Run with all options
-If you want to experiment with all setups (processing functional words Y/N and parallel analysis Y/N), run this command with the flag ```-a```:
-```angular2html
-python src/main.py -i [INPUT_DIR] -a
-```
-This will use the default ```okt``` tokenizer to run all the options.  
-You still need to specify tokenizers you want. If you want to run with all (currently) available tokenizers, run this:
-```angular2html
-python src/main.py -i [INPUT_DIR] -a -t okt mecab hannanm komoran kkma stanza
-```
 
 ### Changing output directory
 The default output directory is ```result```. If you want to change the output directory, use the flag ```-o```:
@@ -78,9 +62,9 @@ python src/main.py -i [INPUT_DIR] -o [OUTPUT_DIR]
 ```
 
 ### Example usage
-If you want to process the files in the directory ```input``` using the tokenizer set ```hannanum``` and ```komoran```, doing parallel analysis, processing contents words only, and save the output to the directory ```output```:
+If you want to process the files in the directory ```input``` using the tokenizer set ```hannanum``` and ```komoran```, processing contents words only, and save the output to the directory ```output```:
 ```angular2html
-python src/main.py -i input -o output -t hannanum komoran -p
+python src/main.py -i input -o output -t hannanum komoran 
 ```
 
 ## Result (Output)
@@ -91,7 +75,7 @@ The log file ```log_[yymmdd]_[hhmm].log``` shows the configuration of your run, 
 The tsv file ```processed_data.tsv``` includes raw texts (column ```raw```), list of typos removed (column ```typo```) and processed texts (column ```processed```) to tokenize and calculate lexical diversity. This file is useful when you want to reuse the processed texts for other text manipulation or evaluation.
 ### Lexical Diversity Values
 The list of lexical diversity values are stored as a tsv format in the file ```[TOKENIZER]_[FUNCTION_WORD_OPTION]_[PARALLEL_ANALYSIS_OPTION].tsv```.
-E.g. the configuration of the output file ```stanza_all_words_prll.tsv``` is ```stanza```, including function words with parallel analysis. ```hannanum_content_only.tsv``` is the output when you processed with ```hannanum```, without function words, without parallel analysis.  
+E.g. the configuration of the output file ```hannanum_content_only.tsv``` is ```hannanum```, without function words and parallel analysis.  
 This is an example result file:
 
 ![](image/result.png)

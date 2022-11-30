@@ -21,7 +21,7 @@ Manual installation is needed to use the mecab tokenizer on Windows.
 Follow this instruction to install Mecab: [Korean](https://uwgdqo.tistory.com/363), [English(translated)](https://uwgdqo-tistory-com.translate.goog/363?_x_tr_sl=ko&_x_tr_tl=en&_x_tr_hl=ko&_x_tr_pto=wapp
 )  
 
-Default Mecab path in the source code is set to: 'C:/mecab/mecab-ko-dic'  
+Default Mecab path in the source code is set to: ```C:/mecab/mecab-ko-dic```   
 You can change the path in the source code directly if you installed Mecab in different path:  
 https://github.com/hksyir/klega_lexdiv/blob/2e0d1a8b8bf03abfdbce62d445ce03d7a45fcf09/src/korean_tokenizer.py#L65
 
@@ -37,7 +37,7 @@ For the basic usage, run:
 ```angular2html
 python src/main.py -i [INPUT_DIR]
 ```
-This will process your texts in your ```INPUT_DIR``` using (default) ```okt``` tokenizer and save the output in the ```result``` directory, processing contents words only, without parallel analysis. 
+This will process your texts in your ```INPUT_DIR``` using (default) ```okt``` tokenizer and save the output in the ```result``` directory, processing contents words only.
 ```[INPUT_DIR]``` must be a directory where all the text files to process are stored.  
 
 ### Tokenizers
@@ -74,8 +74,8 @@ The log file ```log_[yymmdd]_[hhmm].log``` shows the configuration of your run, 
 ### Processed Files
 The tsv file ```processed_data.tsv``` includes raw texts (column ```raw```), list of typos removed (column ```typo```) and processed texts (column ```processed```) to tokenize and calculate lexical diversity. This file is useful when you want to reuse the processed texts for other text manipulation or evaluation.
 ### Lexical Diversity Values
-The list of lexical diversity values are stored as a tsv format in the file ```[TOKENIZER]_[FUNCTION_WORD_OPTION]_[PARALLEL_ANALYSIS_OPTION].tsv```.
-E.g. the configuration of the output file ```hannanum_content_only.tsv``` is ```hannanum```, without function words and parallel analysis.  
+The list of lexical diversity values are stored as a tsv format in the file ```[TOKENIZER]_[FUNCTION_WORD_OPTION].tsv```.
+E.g. the configuration of the output file ```hannanum_content_only.tsv``` is ```hannanum```, without function words.  
 This is an example result file:
 
 ![](image/result.png)

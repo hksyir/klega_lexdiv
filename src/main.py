@@ -5,6 +5,7 @@ import logging
 from ld_analyser import tokenize_n_make_ld_matrix
 import warnings
 import numpy as np
+import pandas as pd
 import sys
 
 from util import current_time_as_str
@@ -30,6 +31,7 @@ if __name__ == '__main__':
                                 Note that functionwords=false in not provided in stanza. """)
     parser.add_argument("-p", "--parallel", action='store_true', help="do parallel analysis.")
     parser.add_argument("-o", "--outputdir", default='result', help="path to store output files (log, tsv files with ld values")
+    parser.add_argument("-no-typo-removal", "--notyporemoval", action='store_true', help="Note: Windows OS with Microsoft Office is required for this function.")
     args = parser.parse_args()
 
 
@@ -53,11 +55,19 @@ if __name__ == '__main__':
     else:
         logging.info("Include Function Words = %s", args.functionwords)
         logging.info("Parallel Analysis = %s", args.parallel)
+    if args.notyporemoval:
+        logging.info("Typo removal function is off: No typos will be removed.")
     logging.info("----------------------------------")
 
     # read and process text
-    txt_id, text_list = read_texts_into_lists(args.inputdir)
-    typo_deleted_df = typodelete(txt_id, text_list, args.outputdir)
+
+    if args.notyporemoval:
+        txt_id, text_list = read_texts_into_lists(args.inputdir, remove_num=False)
+        data_df = pd.DataFrame(index=txt_id, columns=['processed'])
+        data_df['processed'] = text_list
+    else:
+        txt_id, text_list = read_texts_into_lists(args.inputdir)
+        data_df = typodelete(txt_id, text_list, args.outputdir)
 
     # tokenize and analyse
     if args.all:
@@ -68,7 +78,7 @@ if __name__ == '__main__':
                 for p in p_options:
                     config = "Tokenizer: {}, Include Function Words: {}, Parallel Analysis: {}".format(tokenizer, f, p)
                     logging.info("\n\n\n================ %s =================", config)
-                    tokenize_n_make_ld_matrix(data=typo_deleted_df, tokenizer=tokenizer,
+                    tokenize_n_make_ld_matrix(data=data_df, tokenizer=tokenizer,
                                               include_function_words=f,
                                               parallel_analysis=p, output_dir=args.outputdir)
 
@@ -76,7 +86,7 @@ if __name__ == '__main__':
     else:
         for tokenizer in args.tokenizer:
             logging.info("\n\n\n================ tokenizer %s =================", tokenizer)
-            tokenize_n_make_ld_matrix(data=typo_deleted_df, tokenizer=tokenizer,
+            tokenize_n_make_ld_matrix(data=data_df, tokenizer=tokenizer,
                                       include_function_words=args.functionwords, parallel_analysis=args.parallel, output_dir=args.outputdir)
 
     logging.info("FINISHED")

@@ -77,7 +77,7 @@ Three kinds of output files are saved after a successful run.
 ### Logfile   
 The log file ```log_[yymmdd]_[hhmm].log``` shows the configuration of your run, e.g. selected tokenizer, processed files, etc.
 ### Processed Files
-The tsv file ```processed_data.tsv``` includes raw texts (column ```raw```), list of typos removed (column ```typo```) and processed texts (column ```processed```) to tokenize and calculate lexical diversity. This file is useful when you want to reuse the processed texts for other text manipulation or evaluation.
+The tsv file ```processed_data.tsv``` includes raw texts (column ```raw```), list of typos removed (column ```typo```) and processed texts (column ```processed```) to tokenize and calculate lexical diversity. This file is useful when you want to reuse the processed texts for other text manipulation or evaluation. Note: If ```no-typo-removal``` set, this file is not generated.
 ### Lexical Diversity Values
 The list of lexical diversity values are stored as a tsv format in the file ```[TOKENIZER]_[FUNCTION_WORD_OPTION].tsv```.
 E.g. the configuration of the output file ```hannanum_content_only.tsv``` is ```hannanum```, without function words.  

@@ -8,15 +8,14 @@ A Korean lexical diversity analyzer with following features:
 
 
 ## Setup
-Currently, the execution of the code is available only on Windows environment with Microsoft Office installed. (Microsoft Office is needed to remove typos from the raw text.)  
-
+Note: The typo removal function is available only on Windows environment with Microsoft Office installed. To be able to execute the code on other OS environments, the typo removal function must be off by using the flag ```no-typo-removal```. Refer below for the usage.
 ### Basic setup
 Install the required packages using:
 ```angular2html
 pip install -r requirements.txt
 ```
 
-### Mecab tokenizer installation (optional)
+### Mecab tokenizer installation (optional, only for Windows)
 Manual installation is needed to use the mecab tokenizer on Windows. 
 Follow this instruction to install Mecab: [Korean](https://uwgdqo.tistory.com/363), [English(translated)](https://uwgdqo-tistory-com.translate.goog/363?_x_tr_sl=ko&_x_tr_tl=en&_x_tr_hl=ko&_x_tr_pto=wapp
 )  
@@ -77,6 +76,12 @@ The default output directory is ```result```. If you want to change the output d
 python src/main.py -i [INPUT_DIR] -o [OUTPUT_DIR]
 ```
 
+### Turning off the typo removal function (for Mac and Linux)
+Currently, the typo removal function is available only on Windows environment with Microsoft Office installed. To be able to execute the code on other OS environments, the typo removal function must be off by using the flag ```-no-typo-removal```:
+```angular2html
+python src/main.py -i [INPUT_DIR] -no-typo-removal
+```
+
 ### Example usage
 If you want to process the files in the directory ```input``` using the tokenizer set ```hannanum``` and ```komoran```, doing parallel analysis, processing contents words only, and save the output to the directory ```output```:
 ```angular2html
@@ -101,9 +106,6 @@ A [web demo version](http://sooyeoncho.pythonanywhere.com) of Korean LExico-Gram
 Currently optimized for the Chrome browser on PC. (under development)
 
 
-
-### To be updated
-- [ ] analyze without typo removal option (for running on the other OS)
 
 Please create a GitHub issue if you have any questions or bug-reports.  
 Email to the writers: [Sooyeon Cho](mailto:sooyeon.cho@uzh.ch) & [Hakyung Sung](mailto:hsung@uoregon.edu)

@@ -1,5 +1,6 @@
-from konlpy.tag import Okt, Komoran, Mecab, Kkma, Hannanum
+from konlpy.tag import Okt, Komoran, Kkma, Hannanum
 import stanza
+import mecab_ko as MeCab
 
 OKT_STOPWORDS = ["Punctuation", "Foreign", "Alpha", "Number", "Unknown", "KoreanParticle", "Hashtag", "ScreenName",
                  "Email", "URL"]
@@ -61,8 +62,7 @@ def tokenize(tokenizer, text):
         tagger = Komoran()
         stopwords = KOMORAN_STOPWORDS
     elif tokenizer == 'mecab':
-        tagger = Mecab(
-            dicpath='C:/mecab/mecab-ko-dic')
+        tagger = MeCab.Tagger()
         stopwords = MECAB_STOPWORDS
     elif tokenizer == 'kkma':
         tagger = Kkma()
@@ -80,6 +80,12 @@ def tokenize(tokenizer, text):
     if tokenizer == 'stanza':
         doc = tagger(text)
         pos_tuple_all = [(word.text, word.upos) for sent in doc.sentences for word in sent.words]
+    elif tokenizer == 'mecab':
+        tmp_mecab = tagger.parse(text)
+        tmp_mecab = tmp_mecab.split("\n")
+        tmp_mecab = tmp_mecab[:-2] # mecab_ko has an [EOS] symbol. remove this
+        tmp_mecab = [item.split("\t") for item in tmp_mecab]
+        pos_tuple_all = [(item[0], item[1].split(",")[0]) for item in tmp_mecab]
     else:
         pos_tuple_all = tagger.pos(text)
 

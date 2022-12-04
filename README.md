@@ -15,15 +15,22 @@ Install the required packages using:
 pip install -r requirements.txt
 ```
 
-### Mecab tokenizer installation (optional, only for Windows)
-Manual installation is needed to use the mecab tokenizer on Windows. 
-Follow this instruction to install Mecab: [Korean](https://uwgdqo.tistory.com/363), [English(translated)](https://uwgdqo-tistory-com.translate.goog/363?_x_tr_sl=ko&_x_tr_tl=en&_x_tr_hl=ko&_x_tr_pto=wapp
-)  
+[//]: # (### Mecab tokenizer installation &#40;optional, only for Windows&#41;)
 
-Default Mecab path in the source code is set to: ```C:/mecab/mecab-ko-dic```   
-You can change the path in the source code directly if you installed Mecab in different path:  
-https://github.com/hksyir/klega_lexdiv/blob/2e0d1a8b8bf03abfdbce62d445ce03d7a45fcf09/src/korean_tokenizer.py#L65
+[//]: # (Manual installation is needed to use the mecab tokenizer on Windows. )
 
+[//]: # (Follow this instruction to install Mecab: [Korean]&#40;https://uwgdqo.tistory.com/363&#41;, [English&#40;translated&#41;]&#40;https://uwgdqo-tistory-com.translate.goog/363?_x_tr_sl=ko&_x_tr_tl=en&_x_tr_hl=ko&_x_tr_pto=wapp)
+
+[//]: # (&#41;  )
+
+[//]: # ()
+[//]: # (Default Mecab path in the source code is set to: ```C:/mecab/mecab-ko-dic```   )
+
+[//]: # (You can change the path in the source code directly if you installed Mecab in different path:  )
+
+[//]: # (https://github.com/hksyir/klega_lexdiv/blob/2e0d1a8b8bf03abfdbce62d445ce03d7a45fcf09/src/korean_tokenizer.py#L65)
+
+[//]: # ()
 
 ## Data (Input)
 The Korean texts (input data) for analyzing the lexical diversity must be in plain text files with the extension ```.txt```.

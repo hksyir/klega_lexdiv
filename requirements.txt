@@ -4,3 +4,4 @@ pandas
 stanza
 taaled
 numpy
+mecab-ko

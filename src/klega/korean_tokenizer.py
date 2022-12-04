@@ -1,6 +1,9 @@
 from konlpy.tag import Okt, Komoran, Kkma, Hannanum
-import stanza
 import mecab_ko as MeCab
+try:
+    import stanza
+except ImportError:
+    pass
 
 OKT_STOPWORDS = ["Punctuation", "Foreign", "Alpha", "Number", "Unknown", "KoreanParticle", "Hashtag", "ScreenName",
                  "Email", "URL"]

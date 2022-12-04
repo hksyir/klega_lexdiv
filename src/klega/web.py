@@ -1,5 +1,9 @@
+"""
+Author: Sooyeon Cho
+LD Analyser class for KLEGA web application
+"""
 from collections import Counter
-from korean_tokenizer import tokenize, remove_function_words
+from klega.korean_tokenizer import tokenize, remove_function_words
 from taaled import lexdiv
 
 

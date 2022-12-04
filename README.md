@@ -34,7 +34,7 @@ e.g. ```data/text1.txt``` ```data/text2.txt``` ```data/text3.txt```
 ## Usage
 For the basic usage, run:
 ```angular2html
-python src/main.py -i [INPUT_DIR]
+python src/klega/main.py -i [INPUT_DIR]
 ```
 This will process your texts in your ```INPUT_DIR``` using (default) ```okt``` tokenizer and save the output in the ```result``` directory, processing contents words only.
 ```[INPUT_DIR]``` must be a directory where all the text files to process are stored.  
@@ -42,14 +42,14 @@ This will process your texts in your ```INPUT_DIR``` using (default) ```okt``` t
 ### Tokenizers
 To choose different tokenizers, use the argument ```-t```. You can process the same input multiple times using different tokenizers. E.g. To use ```okt``` and ```mecab```, run this command:
 ```angular2html
-python src/main.py -i [INPUT_DIR] -t okt mecab
+python src/klega/main.py -i [INPUT_DIR] -t okt mecab
 ```
 Currently available tokenizers are: ```okt``` ```mecab``` ```hannanum``` ```komoran``` ```kkma``` ```stanza```
 
 ### Processing functional words
 To process functional words as well (contents words and functional words), add ```-f``` flag in the command:
 ```angular2html
-python src/main.py -i [INPUT_DIR] -f
+python src/klega/main.py -i [INPUT_DIR] -f
 ```
 Note: For ```stanza``` tokenizer, ```-f``` must be always added. ```stanza``` does not have an option to extract content words only.
 
@@ -57,19 +57,19 @@ Note: For ```stanza``` tokenizer, ```-f``` must be always added. ```stanza``` do
 ### Changing output directory
 The default output directory is ```result```. If you want to change the output directory, use the flag ```-o```:
 ```angular2html
-python src/main.py -i [INPUT_DIR] -o [OUTPUT_DIR]
+python src/klega/main.py -i [INPUT_DIR] -o [OUTPUT_DIR]
 ```
 
 ### Turning off the typo removal function (for Mac and Linux)
 Currently, the typo removal function is available only on Windows environment with Microsoft Office installed. To be able to execute the code on other OS environments, the typo removal function must be off by using the flag ```-no-typo-removal```:
 ```angular2html
-python src/main.py -i [INPUT_DIR] -no-typo-removal
+python src/klega/main.py -i [INPUT_DIR] -no-typo-removal
 ```
 
 ### Example usage
 If you want to process the files in the directory ```input``` using the tokenizer set ```hannanum``` and ```komoran```, processing contents words only, and save the output to the directory ```output```:
 ```angular2html
-python src/main.py -i input -o output -t hannanum komoran 
+python src/klega/main.py -i input -o output -t hannanum komoran 
 ```
 
 ## Result (Output)

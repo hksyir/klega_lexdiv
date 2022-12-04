@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="klega",
-    version="0.0.1",
+    version="1.0.4",
     author="Sooyeon Cho",
     author_email="sy.cho2321@gmail.com",
     description="Korean LExico-Grammatical Analyzer",

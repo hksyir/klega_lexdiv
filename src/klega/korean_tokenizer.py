@@ -1,8 +1,15 @@
 from konlpy.tag import Okt, Komoran, Kkma, Hannanum
-import mecab_ko as MeCab
+
+try:
+    import mecab_ko as MeCab
+except:
+    print("mecab_ko is not installed. If you want to use the mecab tokenizer, please install the package.")
+    pass
+
 try:
     import stanza
-except ImportError:
+except:
+    print("stanza is not installed. If you want to use the stanza tokenizer, please install the package.")
     pass
 
 OKT_STOPWORDS = ["Punctuation", "Foreign", "Alpha", "Number", "Unknown", "KoreanParticle", "Hashtag", "ScreenName",

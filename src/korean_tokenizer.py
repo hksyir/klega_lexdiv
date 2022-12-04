@@ -94,7 +94,7 @@ def tokenize(tokenizer, text):
 
 def remove_function_words(pos_tuple, tokenizer):
     """
-    Revmoe function words from tokenized pos tuple
+    Remove function words from tokenized pos tuple
     include this if main argument functionwords=False
     :param pos_tuple: ('token', 'Part-Of-Speech')
     :param tokenizer: str, available options: okt, komoran, mecab, kkma, hannanum
